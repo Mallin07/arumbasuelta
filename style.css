@@ -1,0 +1,440 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  color: white;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: black;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a,
+footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav a:hover,
+footer a:hover {
+  color: #f5b942;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 60px;
+}
+
+.logo {
+  max-width: 350px;
+  width: 70%;
+  height: auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.contenido-central {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.conciertos {
+  text-align: center;
+}
+
+.conciertos h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.conciertos ul {
+  list-style: none;
+}
+
+.conciertos li {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.conciertos span {
+  font-weight: bold;
+  color: #f5b942;
+}
+
+/* ===========================
+   LISTA DE CONCIERTOS
+=========================== */
+
+.lista-conciertos {
+  list-style: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+.lista-conciertos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(245, 185, 66, 0.2);
+  transition: all 0.25s ease;
+}
+
+/* Hover (queda muy pro) */
+.lista-conciertos li:hover {
+  transform: scale(1.03);
+  border-color: #f5b942;
+  background: rgba(245, 185, 66, 0.1);
+}
+
+.fecha {
+  font-weight: bold;
+  color: #f5b942;
+  font-size: 15px;
+  min-width: 110px;
+}
+
+.lugar {
+  text-align: right;
+  font-size: 15px;
+}
+
+/* ========================================
+   SECCIÓN QUIÉNES SOMOS
+======================================== */
+
+.pagina-quienes {
+  min-height: 100vh;
+  padding: 130px 20px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at center, rgba(245, 185, 66, 0.12), transparent 35%),
+    #000;
+}
+
+.quienes-card {
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(245, 185, 66, 0.35);
+  border-radius: 24px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(245, 185, 66, 0.12);
+}
+
+.quienes-card .subtitulo {
+  color: #f5b942;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.quienes-card h1 {
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+.quienes-card p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.destacado {
+  margin: 30px 0;
+  padding: 18px;
+  border-radius: 16px;
+  background-color: rgba(245, 185, 66, 0.12);
+  color: #f5b942;
+  font-weight: bold;
+}
+
+/* ===========================
+   PÁGINA IMÁGENES
+=========================== */
+
+.pagina-imagenes {
+  padding: 120px 20px 100px;
+  text-align: center;
+}
+
+.titulo-galeria {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+/* GRID DE IMÁGENES */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.galeria img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* EFECTO HOVER */
+.galeria img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* ===========================
+   PÁGINA PROMOCIÓN
+=========================== */
+
+.pagina-promocion {
+  min-height: 100vh;
+  padding: 130px 20px 100px;
+  text-align: center;
+}
+
+.titulo-promocion {
+  font-size: 38px;
+  margin-bottom: 50px;
+}
+
+.contenedor-promos {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.promo-card {
+  width: 330px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(245, 185, 66, 0.3);
+  box-shadow: 0 0 25px rgba(245, 185, 66, 0.1);
+}
+
+.bloque-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo-promo {
+  max-width: 250px;
+  width: 100%;
+}
+
+.btn-descarga {
+  padding: 12px 24px;
+  border-radius: 10px;
+  background-color: #f5b942;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ===========================
+   PÁGINA PRESUPUESTO
+=========================== */
+
+.pagina-presupuesto {
+  padding: 130px 20px 100px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pagina-presupuesto h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bloque-presupuesto {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(245, 185, 66, 0.25);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.bloque-presupuesto h2 {
+  color: #f5b942;
+  margin-bottom: 20px;
+}
+
+.bloque-presupuesto label {
+  display: block;
+  margin: 15px 0 8px;
+}
+
+.bloque-presupuesto input,
+.bloque-presupuesto select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+.subapartado {
+  margin-top: 20px;
+  padding: 15px;
+  border-left: 3px solid #6bd66b;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.total-presupuesto {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 35px 0;
+  color: #f5b942;
+}
+
+.condiciones {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.condiciones button,
+.btn-enviar {
+  margin-top: 15px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f5b942;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-enviar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* OVERLAY CONDICIONES */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.overlay-contenido {
+  max-width: 600px;
+  background: #111;
+  border: 1px solid #f5b942;
+  border-radius: 18px;
+  padding: 35px;
+  position: relative;
+}
+
+.overlay-contenido h2 {
+  color: #f5b942;
+  margin-bottom: 20px;
+}
+
+.overlay-contenido p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f5b942;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.overlay-contenido h3 {
+  color: #f5b942;
+  margin-top: 22px;
+  margin-bottom: 10px;
+}
+
+.overlay-contenido {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.iva-opcion {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.total-presupuesto p {
+  margin: 5px 0;
+}
+
+.total-final {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f5b942;
+}
+
+.btn-enviar {
+  display: block;
+  margin: 30px auto;
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presupuesto | A Rumba Suelta</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="quienes-somos.html">Quiénes somos</a>
+    <a href="imagenes.html">Imágenes</a>
+    <a href="promocion.html">Promoción</a>
+  </nav>
+</header>
+
+<main class="pagina-presupuesto">
+
+  <form class="form-presupuesto">
+
+    <section class="bloque-presupuesto">
+      <h2>Fecha y horario</h2>
+
+      <label>Fecha</label>
+      <input type="date">
+
+      <label>Horario</label>
+      <select class="opcion" data-precio="0">
+        <option value="">Selecciona una opción</option>
+        <option data-precio="0">Mañana</option>
+        <option data-precio="0">Sobremesa</option>
+        <option data-precio="0">Tardeo</option>
+        <option data-precio="0">Noche</option>
+      </select>
+    </section>
+
+    <section class="bloque-presupuesto">
+      <h2>Lugar</h2>
+
+      <label>Provincia</label>
+      <select id="provincia" class="opcion">
+        <option value="">Selecciona una provincia</option>
+        <option value="barcelona" data-precio="0">Barcelona</option>
+        <option value="gerona" data-precio="30">Gerona</option>
+        <option value="lerida" data-precio="30">Lérida</option>
+        <option value="tarragona" data-precio="30">Tarragona</option>
+      </select>
+
+      <div id="comarca-barcelona" class="subapartado oculto">
+        <label>Comarca de Barcelona</label>
+        <select class="opcion">
+          <option value="">Selecciona una comarca</option>
+          <option data-precio="10">Vallés Oriental</option>
+          <option data-precio="10">Baix Llobregat</option>
+          <option data-precio="20">Otras comarcas</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="bloque-presupuesto">
+      <h2>Tipo de evento</h2>
+    
+      <select id="tipo-evento" class="opcion">
+        <option value="">Selecciona una opción</option>
+        <option value="fiesta" data-precio-musico="10">Fiesta privada</option>
+        <option value="hosteleria" data-precio-musico="0">Hostelería</option>
+        <option value="boda" data-precio-musico="30">Boda</option>
+        <option value="institucion" data-precio-musico="20">Institución pública</option>
+      </select>
+    
+      <div id="equipo-institucion" class="subapartado oculto">
+        <label>Equipo para institución pública</label>
+        <select class="opcion">
+          <option data-precio="0">Equipo propio y técnico</option>
+          <option data-precio="0">Equipo del grupo</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="bloque-presupuesto">
+      <h2>Formación</h2>
+
+      <select id="formacion">
+        <option value="3" data-precio="0">Trío</option>
+        <option value="4" data-precio="100">Cuarteto</option>
+        <option value="5" data-precio="200">Banda</option>
+      </select>
+    </section>
+
+    <section class="bloque-presupuesto">
+  <h2>Duración</h2>
+
+  <select id="duracion" class="opcion">
+      <option value="">Selecciona una opción</option>
+      <option value="80" data-precio="0">1h 20</option>
+      <option value="100" data-precio-musico="10">1h 40 (solo cuarteto o banda)</option>
+      <option value="120" data-precio-musico="20">2h (solo cuarteto o banda)</option>
+    </select>
+  </section>
+
+    <section class="bloque-presupuesto">
+      <h2>Espacio</h2>
+
+      <label>Lugar</label>
+      <select class="opcion">
+        <option data-precio="0">Interior</option>
+        <option data-precio="0">Exterior</option>
+      </select>
+
+      <label>Aforo</label>
+      <select class="opcion">
+        <option data-precio="0">Menos de 50 personas</option>
+        <option data-precio="20">Más de 50 personas</option>
+      </select>
+    </section>
+
+    <section class="bloque-presupuesto">
+      <h2>Otros detalles</h2>
+
+      <label>Comida para los músicos</label>
+      <select class="opcion">
+        <option data-precio="0">Sí</option>
+        <option data-precio="0">No</option>
+      </select>
+
+      <label>Parking</label>
+      <select class="opcion">
+        <option data-precio="0">Privado</option>
+        <option data-precio="0">Público</option>
+        <option data-precio="10">Parking / Zona azul</option>
+      </select>
+    </section>
+
+    <div class="iva-opcion">
+      <label>
+        <input type="checkbox" id="factura">
+        Necesito factura (se aplicará IVA)
+      </label>
+    </div>
+
+    <div class="total-presupuesto">
+      <p>Total (base): <span id="total-base">300 €</span></p>
+      <p id="iva-linea" class="oculto">IVA (21%): <span id="iva">0 €</span></p>
+      <p class="total-final">Total final: <span id="total">300 €</span></p>
+    </div>
+
+    <div class="condiciones">
+      <label>
+        <input type="checkbox" id="acepto">
+        He leído y acepto las condiciones
+      </label>
+
+      <button type="button" id="ver-condiciones">
+        Ver condiciones
+      </button>
+    </div>
+
+    <button type="submit" class="btn-enviar" disabled>
+      Enviar presupuesto
+    </button>
+
+  </form>
+
+</main>
+
+<div id="overlay-condiciones" class="overlay oculto">
+  <div class="overlay-contenido">
+    <button id="cerrar-overlay" class="cerrar">X</button>
+
+    <h2>Condiciones</h2>
+
+    <h3>Instalaciones y montaje</h3>
+    <p>Se requiere un punto de luz a menos de 15 metros del lugar de actuación.</p>
+    <p>Montaje: mínimo 40 minutos; se recomienda 1 hora para un sonido óptimo.</p>
+    <p>Una vez terminado el montaje, habrá un máximo de 60 minutos de espera hasta el inicio.</p>
+    <p>Si se supera este margen, se aplicará un recargo de 30 €/hora de espera.</p>
+
+    <h3>Reserva y cancelaciones</h3>
+    <p>Para reservar la fecha es necesario un anticipo de 100 €, o el pago total si se prefiere.</p>
+    <p>Cancelación con menos de 1 mes de antelación: no se devuelve el anticipo.</p>
+    <p>Cancelación con menos de 24 h: se cobrará el 50 % del importe total.</p>
+
+    <h3>Climatología</h3>
+    <p>En caso de lluvia o temporal, el concierto no se realizará si se prevé riesgo para el equipo.</p>
+    <p>Las anulaciones por lluvia se rigen por las mismas condiciones de cancelación indicadas.</p>
+
+    <h3>Responsabilidad</h3>
+    <p>
+      La persona, entidad o empresa que contrata el grupo responde de cualquier daño que los invitados
+      o clientes puedan causar al equipo durante el evento.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <a href="https://www.instagram.com/" target="_blank">@arumbasuelta</a>
+  <a href="mailto:info@arumbasuelta.com">arumbasuelta@gmail.com</a>
+  <a href="tel:+34600000000">645950449 (Marc)</a>
+</footer>
+
+<script src="presupuesto.js"></script>
+</body>
+</html>
