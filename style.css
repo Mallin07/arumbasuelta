@@ -446,3 +446,123 @@ select option:disabled {
   display: block;
   margin: 30px auto;
 }
+
+/* ===========================
+   RESPONSIVE MÓVIL
+=========================== */
+
+@media (max-width: 768px) {
+
+  header {
+    height: auto;
+    padding: 12px 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  main {
+    padding-top: 110px;
+    padding-bottom: 90px;
+  }
+
+  .logo {
+    width: 85%;
+    max-width: 280px;
+  }
+
+  .contenido-central {
+    gap: 25px;
+  }
+
+  .lista-conciertos {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .lista-conciertos li {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .fecha {
+    min-width: auto;
+  }
+
+  .lugar {
+    text-align: center;
+  }
+
+  .pagina-quienes,
+  .pagina-promocion,
+  .pagina-presupuesto,
+  .pagina-imagenes {
+    padding: 120px 15px 100px;
+  }
+
+  .quienes-card,
+  .promo-card,
+  .bloque-presupuesto {
+    padding: 25px;
+  }
+
+  .quienes-card h1,
+  .titulo-promocion,
+  .titulo-galeria,
+  .pagina-presupuesto h1 {
+    font-size: 30px;
+  }
+
+  .quienes-card p {
+    font-size: 16px;
+  }
+
+  .contenedor-promos {
+    gap: 30px;
+  }
+
+  .promo-card {
+    width: 100%;
+    max-width: 330px;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria img {
+    height: 220px;
+  }
+
+  .total-presupuesto {
+    font-size: 22px;
+  }
+
+  .total-final {
+    font-size: 24px;
+  }
+
+  .overlay-contenido {
+    width: 90%;
+    padding: 25px;
+  }
+
+  footer {
+    height: auto;
+    padding: 12px 10px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  footer a {
+    font-size: 14px;
+  }
+}
