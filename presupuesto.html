@@ -73,20 +73,28 @@
     
       <div id="equipo-institucion" class="subapartado oculto">
         <label>Equipo para institución pública</label>
-        <select class="opcion">
-          <option data-precio="0">Equipo propio y técnico</option>
-          <option data-precio="0">Equipo del grupo</option>
+      
+        <select id="equipo" class="opcion">
+          <option value="entidad" data-precio="0">
+            Equipo de la entidad y técnico de sonido
+          </option>
+      
+          <option value="grupo" data-precio="0">
+            Equipo de A Rumba Suelta
+          </option>
         </select>
       </div>
     </section>
 
     <section class="bloque-presupuesto">
       <h2>Formación</h2>
-
+    
       <select id="formacion">
         <option value="3" data-precio="0">Trío</option>
         <option value="4" data-precio="100">Cuarteto</option>
-        <option value="5" data-precio="200">Banda</option>
+        <option value="5" data-precio="200">
+          Banda (solo con equipo externo y técnico)
+        </option>
       </select>
     </section>
 
@@ -111,9 +119,9 @@
       </select>
 
       <label>Aforo</label>
-      <select class="opcion">
-        <option data-precio="0">Menos de 50 personas</option>
-        <option data-precio="20">Más de 50 personas</option>
+      <select id="aforo" class="opcion">
+        <option value="menos50" data-precio="0">Menos de 50 personas</option>
+        <option value="mas50" data-precio="20">Más de 50 personas</option>
       </select>
     </section>
 

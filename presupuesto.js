@@ -12,8 +12,10 @@ const comarcaBarcelona = document.getElementById("comarca-barcelona");
 
 const tipoEvento = document.getElementById("tipo-evento");
 const equipoInstitucion = document.getElementById("equipo-institucion");
+const equipo = document.getElementById("equipo");
 
 const duracion = document.getElementById("duracion");
+const aforo = document.getElementById("aforo");
 
 const acepto = document.getElementById("acepto");
 const botonEnviar = document.querySelector(".btn-enviar");
@@ -21,6 +23,16 @@ const botonEnviar = document.querySelector(".btn-enviar");
 const verCondiciones = document.getElementById("ver-condiciones");
 const overlay = document.getElementById("overlay-condiciones");
 const cerrarOverlay = document.getElementById("cerrar-overlay");
+
+const opcionBanda = formacion.querySelector('option[value="5"]');
+
+function hayEquipoExternoConTecnico() {
+  return (
+    equipo &&
+    !equipo.closest(".oculto") &&
+    equipo.selectedIndex === 0
+  );
+}
 
 function calcularPresupuesto() {
   let total = PRECIO_BASE;
@@ -33,8 +45,12 @@ function calcularPresupuesto() {
 
     const opcion = select.options[select.selectedIndex];
 
-    const precio = Number(opcion.dataset.precio || 0);
+    let precio = Number(opcion.dataset.precio || 0);
     const precioMusico = Number(opcion.dataset.precioMusico || 0);
+
+    if (select.id === "aforo" && hayEquipoExternoConTecnico()) {
+      precio = 0;
+    }
 
     total += precio;
     total += precioMusico * musicos;
@@ -45,7 +61,7 @@ function calcularPresupuesto() {
   if (factura.checked) {
     const iva = total * 0.21;
     const totalFinal = total + iva;
-  
+
     ivaEl.textContent = `${iva.toFixed(2)} €`;
     totalElemento.textContent = `${totalFinal.toFixed(2)} €`;
     ivaLinea.classList.remove("oculto");
@@ -53,6 +69,11 @@ function calcularPresupuesto() {
     ivaEl.textContent = `0 €`;
     totalElemento.textContent = `${total} €`;
     ivaLinea.classList.add("oculto");
+  }
+
+  const inputTotalEmail = document.getElementById("presupuesto-total-email");
+  if (inputTotalEmail) {
+    inputTotalEmail.value = totalElemento.textContent;
   }
 }
 
@@ -69,6 +90,23 @@ function controlarEquipoInstitucion() {
     equipoInstitucion.classList.remove("oculto");
   } else {
     equipoInstitucion.classList.add("oculto");
+  }
+}
+
+function controlarFormacionBanda() {
+  const esInstitucion = tipoEvento.value === "institucion";
+  const permitirBanda = esInstitucion && hayEquipoExternoConTecnico();
+
+  opcionBanda.disabled = !permitirBanda;
+
+  if (!permitirBanda) {
+    formacion.classList.add("select-bloqueado");
+  } else {
+    formacion.classList.remove("select-bloqueado");
+  }
+
+  if (!permitirBanda && formacion.value === "5") {
+    formacion.value = "4";
   }
 }
 
@@ -90,6 +128,7 @@ document.addEventListener("change", event => {
   if (event.target.tagName === "SELECT") {
     controlarComarcaBarcelona();
     controlarEquipoInstitucion();
+    controlarFormacionBanda();
     controlarDuracionPorFormacion();
     calcularPresupuesto();
   }
@@ -111,5 +150,6 @@ cerrarOverlay.addEventListener("click", () => {
 
 controlarComarcaBarcelona();
 controlarEquipoInstitucion();
+controlarFormacionBanda();
 controlarDuracionPorFormacion();
 calcularPresupuesto();
