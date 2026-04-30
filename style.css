@@ -143,6 +143,10 @@ footer {
   font-size: 15px;
 }
 
+.lista-conciertos .privado {
+  background: rgba(255, 80, 80, 0.08);
+}
+
 /* ========================================
    SECCIÓN QUIÉNES SOMOS
 ======================================== */
